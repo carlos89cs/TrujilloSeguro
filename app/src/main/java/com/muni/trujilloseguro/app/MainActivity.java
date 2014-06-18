@@ -1,5 +1,7 @@
 package com.muni.trujilloseguro.app;
 
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.ActionBarActivity;
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +34,7 @@ import android.widget.ListView;
 
 import com.muni.trujilloseguro.adapters.CustomDrawerAdapter;
 
+import com.muni.trujilloseguro.fragments.FragmentNotificame;
 import com.muni.trujilloseguro.fragments.FragmentOne;
 import com.muni.trujilloseguro.fragments.FragmentTwo;
 import com.muni.trujilloseguro.fragments.FragmentThree;
@@ -55,6 +58,9 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#2f3754")));
+
+
         // Initializing
         dataList = new ArrayList<DrawerItem>();
         mTitle = mDrawerTitle = getTitle();
@@ -72,6 +78,8 @@ public class MainActivity extends ActionBarActivity {
         dataList.add(new DrawerItem("Incidencias", R.drawable.ic_action_good));
         dataList.add(new DrawerItem("Notificame", R.drawable.ic_action_gamepad));
         dataList.add(new DrawerItem("Noticias", R.drawable.ic_action_labels));
+        dataList.add(new DrawerItem("Cuenta",R.drawable.ic_action_cloud));
+        dataList.add(new DrawerItem("Contáctanos",R.drawable.ic_action_help));
 
         adapter = new CustomDrawerAdapter(this, R.layout.custom_drawer_item,
                 dataList);
@@ -139,12 +147,13 @@ public class MainActivity extends ActionBarActivity {
                 break;
 
             case 3:
-                fragment = new FragmentThree();
-                args.putString(FragmentThree.ITEM_NAME, dataList.get(possition)
+                fragment = new FragmentNotificame();
+                /*
+                args.putString(FragmentNotificame.ITEM_NAME, dataList.get(possition)
                         .getItemName());
                 args.putInt(FragmentThree.IMAGE_RESOURCE_ID, dataList
                         .get(possition).getImgResID());
-                //fragment = new FragmentAlerta();
+                        */
                 break;
             case 4:
                 fragment = new FragmentTwo();

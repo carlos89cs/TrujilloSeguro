@@ -22,8 +22,6 @@ import com.muni.trujilloseguro.app.R;
 import com.muni.trujilloseguro.app.MainActivity;
 import android.support.v4.app.Fragment;
 
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Carlos on 05/06/14.

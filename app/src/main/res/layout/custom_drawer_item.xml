@@ -31,7 +31,7 @@
             android:id="@+id/drawerTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
+            android:textColor="#bfbfbf"
             android:textAppearance="?android:attr/textAppearanceSmall" />
 
 
@@ -77,7 +77,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-
+                android:textColor="#DADADC"
                 />
         </LinearLayout>
 
