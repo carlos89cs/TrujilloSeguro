@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class InicioActivity extends ActionBarActivity {
 
@@ -22,7 +23,7 @@ public class InicioActivity extends ActionBarActivity {
         setContentView(R.layout.activity_inicio);
         //getSupportActionBar().hide();
 
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#2f3754")));
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#283036")));
 
         inicializarControles();
         btnIngresar.setOnClickListener(new View.OnClickListener() {
@@ -54,11 +55,30 @@ public class InicioActivity extends ActionBarActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
+        /*
         int id = item.getItemId();
         if (id == R.id.action_settings) {
             return true;
         }
         return super.onOptionsItemSelected(item);
+        */
+
+        switch (item.getItemId())
+        {
+            case R.id.action_cuenta:
+                Intent intent = new Intent(InicioActivity.this,RegistrarActivity.class);
+                startActivity(intent);
+                //Toast.makeText(this,"Crear Cuenta",Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.action_contrasenia:
+                Toast.makeText(this,"Recuperar Contraseña",Toast.LENGTH_SHORT).show();
+                break;
+            default:
+                return super.onOptionsItemSelected(item);
+
+        }
+        return true;
+
     }
 
 }

@@ -5,7 +5,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:screenOrientation="portrait"
-    android:background="@drawable/gris">
+    android:background="#eaeef1">
 
     <!--ImageView
         android:layout_width="match_parent"
@@ -41,7 +41,7 @@
         android:id="@+id/btn_registrar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#62ba67"
+        android:background="#69c773"
         android:paddingLeft="85dp"
         android:paddingRight="85dp"
         android:text="@string/s_acceder"
