@@ -49,8 +49,11 @@
             android:label="@string/title_activity_registrar" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.muni.trujilloseguro.app.InicioActivity"/>
-
+                android:value="com.muni.trujilloseguro.app.InicioActivity" />
+        </activity>
+        <activity
+            android:name="com.muni.trujilloseguro.app.MenuActivity"
+            android:label="@string/title_activity_menu" >
         </activity>
     </application>
 

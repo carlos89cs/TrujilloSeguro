@@ -1,5 +1,9 @@
 package com.muni.trujilloseguro.models;
 
+import android.graphics.Typeface;
+
+import com.muni.trujilloseguro.app.R;
+
 public class DrawerItem {
 
     String ItemName;
@@ -10,6 +14,11 @@ public class DrawerItem {
     public DrawerItem(String itemName, int imgResID) {
         ItemName = itemName;
         this.imgResID = imgResID;
+    }
+
+    public DrawerItem()
+    {
+
     }
 
     public DrawerItem(boolean isSpinner) {
@@ -26,8 +35,10 @@ public class DrawerItem {
         return ItemName;
     }
 
+
     public void setItemName(String itemName) {
         ItemName = itemName;
+
     }
 
     public int getImgResID() {

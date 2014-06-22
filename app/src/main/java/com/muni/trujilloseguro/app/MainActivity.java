@@ -1,6 +1,7 @@
 package com.muni.trujilloseguro.app;
 
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.ActionBarActivity;
 import java.util.ArrayList;
@@ -30,6 +31,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 
 import com.muni.trujilloseguro.adapters.CustomDrawerAdapter;
@@ -58,7 +60,7 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#f8b222")));
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#fe8801")));
 
 
         // Initializing
@@ -71,10 +73,10 @@ public class MainActivity extends ActionBarActivity {
                 GravityCompat.START);
 
         // Add Drawer Item to dataList
-        dataList.add(new DrawerItem(true)); // adding a spinner to the list
+        //dataList.add(new DrawerItem(true)); // adding a spinner to the list
 
         dataList.add(new DrawerItem("My Favorites")); // adding a header to the list
-        dataList.add(new DrawerItem("Alértanos", R.drawable.ic_action_email));
+        dataList.add(new DrawerItem("Alértanos", R.drawable.map32));
         dataList.add(new DrawerItem("Incidencias", R.drawable.ic_action_good));
         dataList.add(new DrawerItem("Notificame", R.drawable.ic_action_gamepad));
         dataList.add(new DrawerItem("Noticias", R.drawable.ic_action_labels));
@@ -111,6 +113,19 @@ public class MainActivity extends ActionBarActivity {
 
         mDrawerLayout.setDrawerListener(mDrawerToggle);
 
+        //Typeface.createFromAsset(getContext().getAssets(), "fonts/VeraMono.ttf"));
+
+        /*
+        String fontPath = "fonts/VeraMono.ttf";
+
+        TextView tv = (TextView) findViewById(R.id.drawer_itemName);
+
+        Typeface tf = Typeface.createFromAsset(getAssets(),fontPath);
+
+        tv.setTypeface(tf);
+        */
+
+        /*
         if (savedInstanceState == null) {
 
             if (dataList.get(0).isSpinner()
@@ -122,6 +137,9 @@ public class MainActivity extends ActionBarActivity {
                 SelectItem(0);
             }
         }
+        */
+
+
 
     }
 
@@ -139,11 +157,11 @@ public class MainActivity extends ActionBarActivity {
         switch (possition) {
 
             case 2:
-                fragment = new FragmentOne();
-                args.putString(FragmentOne.ITEM_NAME, dataList.get(possition)
+                fragment = new FragmentThree();
+                args.putString(FragmentThree.ITEM_NAME, dataList.get(possition)
                         .getItemName());
-                args.putInt(FragmentOne.IMAGE_RESOURCE_ID, dataList.get(possition)
-                        .getImgResID());
+                args.putInt(FragmentThree.IMAGE_RESOURCE_ID, dataList
+                        .get(possition).getImgResID());
                 break;
 
             case 3:
@@ -184,11 +202,11 @@ public class MainActivity extends ActionBarActivity {
                         .get(possition).getImgResID());
                 break;
             case 9:
-                fragment = new FragmentOne();
-                args.putString(FragmentOne.ITEM_NAME, dataList.get(possition)
+                fragment = new FragmentThree();
+                args.putString(FragmentThree.ITEM_NAME, dataList.get(possition)
                         .getItemName());
-                args.putInt(FragmentOne.IMAGE_RESOURCE_ID, dataList.get(possition)
-                        .getImgResID());
+                args.putInt(FragmentThree.IMAGE_RESOURCE_ID, dataList
+                        .get(possition).getImgResID());
                 break;
 
 
