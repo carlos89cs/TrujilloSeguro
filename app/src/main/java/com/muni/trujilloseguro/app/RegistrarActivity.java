@@ -5,9 +5,12 @@ import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 
 public class RegistrarActivity extends ActionBarActivity {
+
+    Menu menu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,17 +18,22 @@ public class RegistrarActivity extends ActionBarActivity {
         setContentView(R.layout.activity_registrar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#2f3754")));
+       //getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#ff7b4d")));
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#d89427")));
+
 
     }
 
 
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        
+
+
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.registrar, menu);
-        return true;
+        return false;
     }
 
     @Override

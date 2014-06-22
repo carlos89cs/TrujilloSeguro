@@ -23,7 +23,9 @@ public class InicioActivity extends ActionBarActivity {
         setContentView(R.layout.activity_inicio);
         //getSupportActionBar().hide();
 
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#283036")));
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#d89427")));
+       // getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(android.R.drawab)));
+        getSupportActionBar().setIcon(new ColorDrawable(getResources().getColor(android.R.color.transparent)));
 
         inicializarControles();
         btnIngresar.setOnClickListener(new View.OnClickListener() {

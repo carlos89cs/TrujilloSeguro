@@ -5,7 +5,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:screenOrientation="portrait"
-    android:background="#eaeef1">
+    android:background="@drawable/background">
 
     <!--ImageView
         android:layout_width="match_parent"
@@ -41,7 +41,7 @@
         android:id="@+id/btn_registrar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#69c773"
+        android:background="#56adea"
         android:paddingLeft="85dp"
         android:paddingRight="85dp"
         android:text="@string/s_acceder"
@@ -63,7 +63,7 @@
         android:layout_below="@+id/tv_bienvenido"
         android:layout_marginRight="18dp"
         android:layout_marginTop="61dp"
-        android:drawableLeft="@drawable/ic_action_camera"
+        android:drawableLeft="@drawable/emaill"
         android:ems="10"
         android:hint="@string/s_e_mail"
         android:padding="9dp"
@@ -75,13 +75,14 @@
     <com.muni.trujilloseguro.components.MyEditText
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:drawableLeft="@drawable/ic_action_camera"
+        android:drawableLeft="@drawable/private48"
         android:textColor="#2f3754"
         android:hint="@string/s_contrasenia"
         android:id="@+id/view"
         android:layout_centerVertical="true"
         android:layout_alignLeft="@+id/tv_bienvenido"
         android:layout_alignStart="@+id/tv_bienvenido" />
+
 
 
 

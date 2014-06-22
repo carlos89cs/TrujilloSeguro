@@ -6,6 +6,8 @@
     <item android:id="@+id/action_cuenta"
         android:title="@string/action_crearcuenta"
         android:orderInCategory="100"
+        android:state_pressed="true"
+        android:color="#283036"
 
         app:showAsAction="never" />
     <item android:id="@+id/action_contrasenia"

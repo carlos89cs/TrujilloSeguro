@@ -58,7 +58,7 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#283036")));
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#f8b222")));
 
 
         // Initializing

@@ -42,7 +42,7 @@
 
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
-            android:value="AIzaSyBsy9nr8PpNbiRkrTvOSXtG2YQkPWA6kl8" />
+            android:value="AIzaSyAYrX1gQits7dv28UeLPZMwOATxTzFHKWE" />
 
         <activity
             android:name="com.muni.trujilloseguro.app.RegistrarActivity"
