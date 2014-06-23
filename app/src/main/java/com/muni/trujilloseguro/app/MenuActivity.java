@@ -11,6 +11,9 @@ import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.text.Spannable;
+import android.text.SpannableString;
+import com.muni.trujilloseguro.components.TypefaceSpan;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -18,15 +21,16 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+
 import com.muni.trujilloseguro.adapters.NavDrawerListAdapter;
 import com.muni.trujilloseguro.fragments.FragmentOne;
-import com.muni.trujilloseguro.fragments.FragmentThree;
-import com.muni.trujilloseguro.fragments.FragmentTwo;
 import com.muni.trujilloseguro.models.NavDrawerItem;
 
 import java.util.ArrayList;
 
 public class MenuActivity extends ActionBarActivity {
+
+    private String FONT = "PTSans.ttf";
 
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
@@ -102,13 +106,13 @@ public class MenuActivity extends ActionBarActivity {
                 R.string.app_name // nav drawer close - description for accessibility
         ) {
             public void onDrawerClosed(View view) {
-                getSupportActionBar().setTitle(mTitle);
+                setTitle(mTitle);
                 // calling onPrepareOptionsMenu() to show action bar icons
                 invalidateOptionsMenu();
             }
 
             public void onDrawerOpened(View drawerView) {
-                getSupportActionBar().setTitle(mDrawerTitle);
+                setTitle(mDrawerTitle);
                 // calling onPrepareOptionsMenu() to hide action bar icons
                 invalidateOptionsMenu();
             }
@@ -216,7 +220,12 @@ public class MenuActivity extends ActionBarActivity {
     @Override
     public void setTitle(CharSequence title) {
         mTitle = title;
-        getSupportActionBar().setTitle(mTitle);
+
+        SpannableString s = new SpannableString(mTitle);
+        s.setSpan(new TypefaceSpan(getApplicationContext(), FONT), 0, s.length(),
+                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        getSupportActionBar().setTitle(s);
     }
 
     /**

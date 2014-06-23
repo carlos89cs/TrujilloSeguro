@@ -26,8 +26,6 @@ public class NavDrawerListAdapter extends BaseAdapter {
     private ArrayList<NavDrawerItem> navDrawerItems;
     //AssetManager assetManager; --> obtenlo desde el context
 
-
-
     public NavDrawerListAdapter(Context context,ArrayList<NavDrawerItem> navDrawerItems){
         this.context = context;
         this.navDrawerItems = navDrawerItems;
@@ -53,6 +51,7 @@ public class NavDrawerListAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+
         if (convertView == null) {
             LayoutInflater mInflater = (LayoutInflater)
                     context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
@@ -63,12 +62,16 @@ public class NavDrawerListAdapter extends BaseAdapter {
         TextView txtTitle = (TextView) convertView.findViewById(R.id.title);
         TextView txtCount = (TextView) convertView.findViewById(R.id.counter);
 
+        Typeface tvFont = Typeface.createFromAsset(context.getAssets(),"fonts/PTSans.ttf");
+        //txtTitle.setTypeface(tvFont, Typeface.BOLD);
+
         imgIcon.setImageResource(navDrawerItems.get(position).getIcon());
         txtTitle.setText(navDrawerItems.get(position).getTitle());
 
         //Modificar la fuente de los textview de la lista a desplegar
-        //final Typeface tvFont = Typeface.createFromAsset(assetManager,"BPreplay.otf");
-        //txtTitle.setTextColor(Color.BLUE);
+
+
+        //
 
         // displaying count
         // check whether it set visible or not
