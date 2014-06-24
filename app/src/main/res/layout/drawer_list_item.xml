@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="48dp"
-    android:background="@drawable/list_selector">
+    android:background="@drawable/list_selector"
+    >
 
     <ImageView
         android:id="@+id/icon"
@@ -13,8 +14,7 @@
         android:layout_marginRight="12dp"
         android:contentDescription="@string/desc_list_item_icon"
         android:src="@drawable/ic_action_about"
-        android:background="#5a5b5b"
-        android:paddingLeft="40dp"
+        android:paddingLeft="20dp"
         android:paddingRight="8dp"
         android:paddingTop="12dp"
         android:paddingBottom="12dp"

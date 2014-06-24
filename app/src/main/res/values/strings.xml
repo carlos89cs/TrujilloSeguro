@@ -32,15 +32,15 @@
     </string-array>
 
     <array name="nav_drawer_icons">
-        <item>@drawable/administrator24</item>
-        <item>@drawable/administrator24</item>
-        <item>@drawable/administrator24</item>
-        <item>@drawable/administrator24</item>
-        <item>@drawable/administrator24</item>
-        <item>@drawable/administrator24</item>
+        <item>@drawable/businessman24</item>
+        <item>@drawable/businessman24</item>
+        <item>@drawable/businessman24</item>
+        <item>@drawable/businessman24</item>
+        <item>@drawable/businessman24</item>
+        <item>@drawable/businessman24</item>
     </array>
 
-    <string name="title_activity_menu">MenuActivity</string>
+    <string name="title_activity_menu">Trux App</string>
     <string name="desc_list_item_icon">Item Icon</string>
 
 

@@ -5,13 +5,13 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:screenOrientation="portrait"
-    android:background="#383838"
+    android:background="@drawable/background"
     >
     <Button
         android:id="@+id/btn_registrar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#62ba67"
+        android:background="#43c9cb"
         android:paddingLeft="85dp"
         android:paddingRight="85dp"
         android:text="Agregar Contacto"
@@ -20,7 +20,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="66dp" />
 
-    <ImageButton
+    ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageButton"

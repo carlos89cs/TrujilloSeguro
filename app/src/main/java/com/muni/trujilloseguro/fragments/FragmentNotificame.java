@@ -1,5 +1,6 @@
 package com.muni.trujilloseguro.fragments;
 
+
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -15,13 +16,17 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.GoogleMap.OnMapClickListener;
+import com.google.android.gms.maps.GoogleMap.OnMarkerClickListener;
+import com.google.android.gms.maps.GoogleMap.OnMapLongClickListener;
 import com.google.android.gms.maps.MapView;
 import com.muni.trujilloseguro.app.R;
 
 /**
  * Created by Carlos-cs on 17/06/14.
  */
-public class FragmentNotificame extends Fragment {
+public class FragmentNotificame extends Fragment
+ {
 
     MapView m;
 

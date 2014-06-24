@@ -1,7 +1,9 @@
 package com.muni.trujilloseguro.app;
 
 import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -20,9 +22,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 
 import com.muni.trujilloseguro.adapters.NavDrawerListAdapter;
+import com.muni.trujilloseguro.fragments.FragmentNotificame;
 import com.muni.trujilloseguro.fragments.FragmentOne;
 import com.muni.trujilloseguro.models.NavDrawerItem;
 
@@ -30,7 +34,7 @@ import java.util.ArrayList;
 
 public class MenuActivity extends ActionBarActivity {
 
-    private String FONT = "PTSans.ttf";
+    private String FONT = "KaushanScript-Regular.otf";
 
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
@@ -55,7 +59,23 @@ public class MenuActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-        //getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#fe8801")));
+
+
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#1b2533")));
+
+        int actionBarTitleId = Resources.getSystem().getIdentifier("action_bar_title", "id", "android");
+        if (actionBarTitleId > 0) {
+            TextView title = (TextView) findViewById(actionBarTitleId);
+            if (title != null) {
+                title.setTextColor(Color.parseColor("#43c9cb"));
+
+            }
+        }
+
+
+
+
+
 
         mTitle = mDrawerTitle = getTitle();
 
@@ -140,8 +160,8 @@ public class MenuActivity extends ActionBarActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return false ;
     }
 
     @Override
@@ -181,7 +201,7 @@ public class MenuActivity extends ActionBarActivity {
                 fragment = new FragmentOne();
                 break;
             case 1:
-                fragment = new FragmentOne();
+                fragment = new FragmentNotificame();
                 break;
             case 2:
                 fragment = new FragmentOne();
@@ -221,11 +241,15 @@ public class MenuActivity extends ActionBarActivity {
     public void setTitle(CharSequence title) {
         mTitle = title;
 
+
         SpannableString s = new SpannableString(mTitle);
         s.setSpan(new TypefaceSpan(getApplicationContext(), FONT), 0, s.length(),
                 Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 
         getSupportActionBar().setTitle(s);
+
+
+        //getSupportActionBar().setTitle(s)
     }
 
     /**
