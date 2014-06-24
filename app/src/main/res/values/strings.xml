@@ -17,6 +17,14 @@
     <string name="drawer_close">Slider Menu CLosed</string>
     <string name="title_activity_registrar">Crear Cuenta</string>
 
+    <!-- Fragment Incidencia -->
+    <string name="i_title">Reportar Incidencia</string>
+    <string name="i_tipo">Tipo</string>
+    <string name="i_direccion">Dirección</string>
+    <string name="i_go">Go</string>
+    <string name="i_descripcion">Descripción</string>
+
+
     <!-- Registrar Activity -->
     <string name="s_nombre">Nombre</string>
     <string name="s_movil">Teléfono</string>

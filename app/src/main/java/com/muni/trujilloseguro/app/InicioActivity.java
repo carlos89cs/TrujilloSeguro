@@ -12,9 +12,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.muni.trujilloseguro.gps.GPSTracker;
+
 public class InicioActivity extends ActionBarActivity {
 
-
+    GPSTracker gps;
     Button btnIngresar;
 
     @Override
@@ -23,16 +25,17 @@ public class InicioActivity extends ActionBarActivity {
         setContentView(R.layout.activity_inicio);
         //getSupportActionBar().hide();
 
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#f29900")));
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#1b2533")));
        // getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#d89427")));
-        getSupportActionBar().setIcon(new ColorDrawable(getResources().getColor(android.R.color.transparent)));
+        //getSupportActionBar().setIcon(new ColorDrawable(getResources().getColor(android.R.color.transparent)));
 
         inicializarControles();
         btnIngresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(InicioActivity.this,MenuActivity.class);
-                startActivity(intent);
+          //      Intent intent = new Intent(InicioActivity.this,MenuActivity.class);
+            //    startActivity(intent);
+                getExtras();
 
             }
         });
@@ -41,6 +44,35 @@ public class InicioActivity extends ActionBarActivity {
     public void inicializarControles()
     {
         btnIngresar = (Button) findViewById(R.id.btn_registrar);
+    }
+
+    public void getExtras(){
+
+        gps = new GPSTracker(InicioActivity.this);
+
+        if(gps.canGetLocation()){
+
+            double latitude = gps.getLatitude();
+            double longitude = gps.getLongitude();
+
+            Toast.makeText(getApplicationContext(), "Hey!!  Tu Locación es - \nLat: " + latitude + "\nLong: " + longitude, Toast.LENGTH_LONG).show();
+            Intent intent = new Intent().setClass(getApplicationContext(),MenuActivity.class);
+            intent.putExtra("milat", latitude);
+            intent.putExtra("milng", longitude);
+//            intent.putExtra("userName", userName.getText());
+//            intent.putExtra("userPass", userPass.getText());
+            startActivity(intent);
+            //finish();
+
+
+        }else{
+            // can't get location
+            // GPS or Network is not enabled
+            // Ask user to enable GPS/network in settings
+            gps.showSettingsAlert();
+            //gps.showSettingsAlert2();
+        }
+
     }
 
 

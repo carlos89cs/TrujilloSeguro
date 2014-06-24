@@ -26,6 +26,7 @@ import android.widget.TextView;
 
 
 import com.muni.trujilloseguro.adapters.NavDrawerListAdapter;
+import com.muni.trujilloseguro.fragments.FragmentIncidencia;
 import com.muni.trujilloseguro.fragments.FragmentNotificame;
 import com.muni.trujilloseguro.fragments.FragmentOne;
 import com.muni.trujilloseguro.models.NavDrawerItem;
@@ -201,10 +202,10 @@ public class MenuActivity extends ActionBarActivity {
                 fragment = new FragmentOne();
                 break;
             case 1:
-                fragment = new FragmentNotificame();
+                fragment = new FragmentIncidencia();
                 break;
             case 2:
-                fragment = new FragmentOne();
+                fragment = new FragmentNotificame();
                 break;
             case 3:
                 fragment = new FragmentOne();

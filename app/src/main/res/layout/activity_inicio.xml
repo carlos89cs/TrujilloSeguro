@@ -5,7 +5,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:screenOrientation="portrait"
-    android:background="#333333">
+    android:background="@drawable/background">
 
     <!--ImageView
         android:layout_width="match_parent"
@@ -16,15 +16,16 @@
 
     <TextView
         android:id="@+id/tv_bienvenido"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="20dp"
         android:text="@string/app_name"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="#2f3754"
-        android:textSize="42dp" />
+        android:textColor="#1b2533"
+        android:textSize="42dp"
+        android:gravity="center" />
 
     <!--com.facebook.widget.LoginButton
         android:id="@+id/login_button"
@@ -35,56 +36,61 @@
         android:layout_alignRight="@+id/btn_registrar"
         android:layout_marginBottom="20dp"
         android:paddingLeft="85dp"
-        android:paddingRight="85dp" /-->
-
-    <Button
-        android:id="@+id/btn_registrar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#56adea"
-        android:paddingLeft="85dp"
         android:paddingRight="85dp"
-        android:text="@string/s_acceder"
-        android:textColor="#eaeaea"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="119dp" />
 
     <TextView android:id="@+id/txt_contacts"
         android:textSize="24sp"
         android:layout_margin="8px"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" />
-
+                                                /-->
     <EditText
         android:id="@+id/et_nombre"
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv_bienvenido"
-        android:layout_marginRight="18dp"
-        android:layout_marginTop="61dp"
-        android:drawableLeft="@drawable/emaill"
+        android:layout_marginRight="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="40sp"
+        android:layout_marginBottom="20sp"
+        android:drawableLeft="@drawable/emailr"
         android:ems="10"
         android:hint="@string/s_e_mail"
         android:padding="9dp"
-        android:textColor="#eaeaea" />
-
-
-
-
-    <com.muni.trujilloseguro.components.MyEditText
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:drawableLeft="@drawable/private48"
-        android:textColor="#2f3754"
-        android:hint="@string/s_contrasenia"
-        android:id="@+id/view"
-        android:layout_centerVertical="true"
+        android:textColor="#706d6d"
         android:layout_alignLeft="@+id/tv_bienvenido"
         android:layout_alignStart="@+id/tv_bienvenido" />
 
 
 
+
+    <com.muni.trujilloseguro.components.MyEditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/privater"
+        android:textColor="#706d6d"
+        android:hint="@string/s_contrasenia"
+        android:id="@+id/view"
+        android:layout_below="@+id/et_nombre"
+        android:layout_alignLeft="@+id/et_nombre"
+        android:layout_alignStart="@+id/et_nombre"
+        android:layout_alignRight="@+id/et_nombre"
+        android:layout_alignEnd="@+id/et_nombre" />
+
+
+
+    <Button
+        android:id="@+id/btn_registrar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#43c9cb"
+        android:paddingLeft="85dp"
+        android:paddingRight="85dp"
+        android:text="@string/s_acceder"
+        android:textColor="#eaeaea"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50dp" />
 
 </RelativeLayout>
 
