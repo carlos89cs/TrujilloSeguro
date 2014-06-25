@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.content.res.TypedArray;
 import android.support.v4.app.ActionBarDrawerToggle;
@@ -27,6 +28,7 @@ import android.widget.TextView;
 
 import com.muni.trujilloseguro.adapters.NavDrawerListAdapter;
 import com.muni.trujilloseguro.fragments.FragmentIncidencia;
+import com.muni.trujilloseguro.fragments.FragmentLlamar;
 import com.muni.trujilloseguro.fragments.FragmentNotificame;
 import com.muni.trujilloseguro.fragments.FragmentOne;
 import com.muni.trujilloseguro.models.NavDrawerItem;
@@ -53,14 +55,14 @@ public class MenuActivity extends ActionBarActivity {
 
     private ArrayList<NavDrawerItem> navDrawerItems;
     private NavDrawerListAdapter adapter;
-
+    public static FragmentManager fragmentManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-
+        fragmentManager = getSupportFragmentManager();
 
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#1b2533")));
 
@@ -197,6 +199,7 @@ public class MenuActivity extends ActionBarActivity {
     private void displayView(int position) {
         // update the main content by replacing fragments
         Fragment fragment = null;
+
         switch (position) {
             case 0:
                 fragment = new FragmentOne();
@@ -214,7 +217,7 @@ public class MenuActivity extends ActionBarActivity {
                 fragment = new FragmentOne();
                 break;
             case 5:
-                fragment = new FragmentOne();
+                fragment = new FragmentLlamar();
                 break;
 
             default:
