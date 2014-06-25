@@ -7,7 +7,7 @@
     <string name="action_ayuda">Ayuda</string>
     <string name="action_crearcuenta">Crear Cuenta</string>
     <string name="action_contrasenia">Recuperar Contraseña</string>
-    <string name="s_acceder">ACCEDER</string>
+    <string name="s_acceder">Ingresar</string>
     <string name="s_contrasenia">Contraseña</string>
     <string name="s_e_mail">   E-mail</string>
     <string name="s_recuperar">Recuperar Contraseña</string>
@@ -23,6 +23,17 @@
     <string name="i_direccion">Dirección</string>
     <string name="i_go">Go</string>
     <string name="i_descripcion">Descripción</string>
+    <string name="i_fecha">Fecha y Hora</string>
+    <string name="i_foto">Foto</string>
+    <string name="i_enviar">Enviar Incidencia</string>
+
+    <string-array name="tipoincidencias">
+        <item>Violencia Familiar</item>
+        <item>Robo</item>
+        <item>Pandillaje</item>
+        <item>Corrupción</item>
+        <item>Accidente Vehicular</item>
+    </string-array>
 
 
     <!-- Registrar Activity -->
@@ -50,7 +61,6 @@
 
     <string name="title_activity_menu">Trux App</string>
     <string name="desc_list_item_icon">Item Icon</string>
-
 
 
 

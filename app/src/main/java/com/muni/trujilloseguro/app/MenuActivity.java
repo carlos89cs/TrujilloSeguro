@@ -1,10 +1,15 @@
 package com.muni.trujilloseguro.app;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.graphics.Matrix;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
+import android.media.Image;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -16,12 +21,16 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.text.Spannable;
 import android.text.SpannableString;
+
+import com.google.android.gms.maps.model.LatLng;
 import com.muni.trujilloseguro.components.TypefaceSpan;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -31,11 +40,15 @@ import com.muni.trujilloseguro.fragments.FragmentIncidencia;
 import com.muni.trujilloseguro.fragments.FragmentLlamar;
 import com.muni.trujilloseguro.fragments.FragmentNotificame;
 import com.muni.trujilloseguro.fragments.FragmentOne;
+import com.muni.trujilloseguro.gps.ReverseGeocodingTask;
 import com.muni.trujilloseguro.models.NavDrawerItem;
 
 import java.util.ArrayList;
 
 public class MenuActivity extends ActionBarActivity {
+
+    private static final int REQUEST_PHOTO = 1;
+    private static final int REQUEST_INCIDENCIA_MAPA = 2;
 
     private String FONT = "KaushanScript-Regular.otf";
 
@@ -74,11 +87,6 @@ public class MenuActivity extends ActionBarActivity {
 
             }
         }
-
-
-
-
-
 
         mTitle = mDrawerTitle = getTitle();
 
@@ -252,8 +260,6 @@ public class MenuActivity extends ActionBarActivity {
 
         getSupportActionBar().setTitle(s);
 
-
-        //getSupportActionBar().setTitle(s)
     }
 
     /**
@@ -273,6 +279,37 @@ public class MenuActivity extends ActionBarActivity {
         super.onConfigurationChanged(newConfig);
         // Pass any configuration change to the drawer toggls
         mDrawerToggle.onConfigurationChanged(newConfig);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data){
+
+        if(resultCode == Activity.RESULT_OK)
+        {
+            Bundle extras;
+            switch (requestCode){
+
+                case REQUEST_PHOTO:
+                    extras = data.getExtras();
+                    Bitmap bmp = (Bitmap) extras.get("data");
+                    ImageView foto = (ImageView) findViewById(R.id.imgPreview);
+                    foto.setVisibility(View.VISIBLE);
+                    foto.setImageBitmap(bmp);
+                    break;
+
+                case REQUEST_INCIDENCIA_MAPA:
+                    EditText miDireccion = (EditText) findViewById(R.id.tv_direccion);
+                    double latitude = data.getExtras().getDouble("milat");
+                    double longitude = data.getExtras().getDouble("milng");
+                    LatLng miPos = new LatLng(latitude, longitude);
+                    ReverseGeocodingTask reverse = new ReverseGeocodingTask(getApplicationContext(), miDireccion);
+                    reverse.execute(miPos);
+                    break;
+
+            }
+
+        }
+        super.onActivityResult(requestCode, resultCode, data);
     }
 
 }

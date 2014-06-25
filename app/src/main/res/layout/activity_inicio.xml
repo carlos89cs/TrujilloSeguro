@@ -44,7 +44,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" />
                                                 /-->
-    <EditText
+    <com.muni.trujilloseguro.components.MyEditText
         android:id="@+id/et_nombre"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -56,8 +56,7 @@
         android:drawableLeft="@drawable/private48"
         android:ems="10"
         android:hint="@string/s_e_mail"
-        android:padding="9dp"
-        android:textColor="#706d6d"
+        android:textColor="#1b2533"
         android:layout_alignLeft="@+id/tv_bienvenido"
         android:layout_alignStart="@+id/tv_bienvenido" />
 

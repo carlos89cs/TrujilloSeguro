@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,7 +21,7 @@ import android.support.v4.app.Fragment;
 /**
  * Created by Carlos on 05/06/14.
  */
-public class FragmentAlerta extends Fragment {
+public class FragmentAlerta extends FragmentActivity {
 
     /*
     Button btnContacto;

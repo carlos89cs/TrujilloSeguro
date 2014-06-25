@@ -84,9 +84,9 @@ public class MyEditText extends EditText {
     //intercept Typeface change and set it with our custom font
     public void setTypeface(Typeface tf, int style) {
         if (style == Typeface.BOLD) {
-            super.setTypeface(Typeface.createFromAsset(getContext().getAssets(), "fonts/VeraMono.ttf"));
+            super.setTypeface(Typeface.createFromAsset(getContext().getAssets(), "fonts/PTSans.ttf"));
         } else {
-            super.setTypeface(Typeface.createFromAsset(getContext().getAssets(), "fonts/VeraMono.ttf"));
+            super.setTypeface(Typeface.createFromAsset(getContext().getAssets(), "fonts/PTSans.ttf"));
         }
     }
 

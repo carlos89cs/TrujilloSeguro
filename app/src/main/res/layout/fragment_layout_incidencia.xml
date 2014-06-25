@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/container"
+    android:id="@+id/fragment_incidencia"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@drawable/background"
@@ -8,7 +8,7 @@
 
 
     <ScrollView
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="match_parent"
         android:id="@+id/scrollView"
         android:layout_alignParentTop="true"
@@ -19,14 +19,14 @@
         android:fillViewport="false">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="match_parent"
             android:orientation="vertical" >
 
             <TextView
                 android:id="@+id/textView_title"
                 android:layout_marginTop="20dp"
-                android:layout_width="@dimen/dialog_fixed_width_major"
+                android:layout_width="fill_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:layout_marginLeft="5dp"
@@ -46,7 +46,7 @@
                 android:text="@string/i_tipo"
                 android:layout_alignParentTop="true"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="#43c9cb" />
+                android:textColor="#1b2533" />
 
             <TextView
                 android:id="@+id/textView_lineal1"
@@ -76,7 +76,7 @@
                 android:layout_marginRight="15dp"
                 android:text="@string/i_direccion"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="#43c9cb" />
+                android:textColor="#1b2533" />
 
             <TextView
                 android:id="@+id/textView_lineal2"
@@ -105,6 +105,7 @@
                     android:drawableLeft="@drawable/marker"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:ems="10"
+                    android:textColor="#1b2533"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
                     android:layout_toLeftOf="@+id/btnShowLocation" />
@@ -112,13 +113,12 @@
                 <Button
                     android:id="@+id/btnShowLocation"
                     android:layout_marginTop="4dp"
-                    android:layout_marginLeft="15dp"
                     android:layout_alignParentTop="true"
                     android:layout_width="wrap_content"
                     android:layout_height="32dp"
                     android:layout_marginRight="15dp"
                     android:layout_alignParentRight="true"
-                    android:background="#fe6565"
+                    android:background="#43c9cb"
                     android:padding="0dp"
                     android:text="@string/i_go"
                     android:textColor="#eaeaea" />
@@ -133,10 +133,10 @@
                 android:layout_marginRight="15dp"
                 android:text="@string/i_descripcion"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="#43c9cb" />
+                android:textColor="#1b2533" />
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/textView_lineal3"
                 android:layout_width="fill_parent"
                 android:layout_height="1dp"
                 android:layout_marginLeft="15dp"
@@ -144,7 +144,7 @@
                 android:background="#43c9cb" />
 
             <EditText
-                android:id="@+id/editText1"
+                android:id="@+id/editText_descripción"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
@@ -153,6 +153,75 @@
                 android:ems="10"
                 android:inputType="textMultiLine" >
             </EditText>
+
+            <TextView
+                android:id="@+id/TextView_fecha"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:text="@string/i_fecha"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#1b2533" />
+
+            <TextView
+                android:id="@+id/textView_lineal4"
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="14dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="#43c9cb" />
+
+            <TextView
+                android:id="@+id/TextView_foto"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:text="@string/i_foto"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#1b2533" />
+
+            <TextView
+                android:id="@+id/textView_lineal5"
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="#43c9cb" />
+
+            <Button
+                android:id="@+id/btnCapturaFoto"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/camara" />
+
+            <ImageView
+                android:id="@+id/imgPreview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:scaleType="fitXY"
+                android:visibility="gone"/>
+
+            <Button
+                android:id="@+id/button_enviar"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="45dp"
+                android:layout_marginTop="45dp"
+                android:background="#43c9cb"
+                android:layout_marginLeft="45dp"
+                android:layout_marginRight="45dp"
+                android:text="@string/i_enviar"
+                android:textColor="#eaeaea"
+                android:layout_gravity="center_horizontal" />
 
 
         </LinearLayout>

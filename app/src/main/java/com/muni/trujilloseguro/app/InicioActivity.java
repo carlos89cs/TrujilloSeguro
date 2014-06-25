@@ -48,31 +48,13 @@ public class InicioActivity extends ActionBarActivity {
 
     public void getExtras(){
 
-        gps = new GPSTracker(InicioActivity.this);
 
-        if(gps.canGetLocation()){
-
-            double latitude = gps.getLatitude();
-            double longitude = gps.getLongitude();
-
-            Toast.makeText(getApplicationContext(), "Hey!!  Tu Locación es - \nLat: " + latitude + "\nLong: " + longitude, Toast.LENGTH_LONG).show();
+           // Toast.makeText(getApplicationContext(), "Hey!!  Tu Locación es - \nLat: " + latitude + "\nLong: " + longitude, Toast.LENGTH_LONG).show();
             Intent intent = new Intent().setClass(getApplicationContext(),MenuActivity.class);
-            intent.putExtra("milat", latitude);
-            intent.putExtra("milng", longitude);
 //            intent.putExtra("userName", userName.getText());
 //            intent.putExtra("userPass", userPass.getText());
             startActivity(intent);
             //finish();
-
-
-        }else{
-            // can't get location
-            // GPS or Network is not enabled
-            // Ask user to enable GPS/network in settings
-            gps.showSettingsAlert();
-            //gps.showSettingsAlert2();
-        }
-
     }
 
 
