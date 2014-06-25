@@ -50,7 +50,7 @@ public class FragmentLlamar  extends Fragment
            new InstitucionItem("Comiseria Ayacucho","291436",R.drawable.comi_ayacucho,2),
            new InstitucionItem("Comiseria La Noria","217433",R.drawable.comi_noria,3),
            new InstitucionItem("Comiseria San Andres","296821",R.drawable.comi_sanandres,4),
-           new InstitucionItem("Radio Patrulla","221908",R.drawable.radio_patrulla,5),
+           new InstitucionItem("Radio Patrulla","221908",R.drawable.comi_ayacucho,5),
         };
 
         InstitucionAdapter adap = new InstitucionAdapter(getActivity(),args);

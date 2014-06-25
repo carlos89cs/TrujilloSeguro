@@ -62,7 +62,7 @@ public class FragmentNotificame extends Fragment {
         // Needs to call MapsInitializer before doing any CameraUpdateFactory calls
         try {
             MapsInitializer.initialize(this.getActivity());
-        } catch (GooglePlayServicesNotAvailableException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
