@@ -13,6 +13,8 @@ import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,7 +43,8 @@ public class FragmentIncidencia extends Fragment implements View.OnClickListener
     View view;
     private Spinner tipoincidencias;
     private ImageView foto;
-    private EditText miDireccion;
+    EditText miDireccion;
+    String miDir;
     private LatLng miPos;
     private Button btnShowLocation,btnTomaFoto;
     final static int REQUEST_PHOTO = 1;
@@ -60,15 +63,17 @@ public class FragmentIncidencia extends Fragment implements View.OnClickListener
 
         return view;
     }
-
     private void CargarPosicion() {
 
         GPSTracker gps = new GPSTracker(getActivity());
         if(gps.canGetLocation()){
-            miPos = new LatLng(gps.getLatitude(), gps.getLongitude());
-            Toast.makeText(getActivity(), "Hey!!  Tu Locación es - \nLat: " + miPos.latitude + "\nLong: " + miPos.longitude, Toast.LENGTH_LONG).show();
-            ReverseGeocodingTask reverse = new ReverseGeocodingTask(view.getContext(), miDireccion);
-            reverse.execute(miPos);
+            if(miDir == null){
+                miPos = new LatLng(gps.getLatitude(), gps.getLongitude());
+//                Toast.makeText(getActivity(), "Hey!!  Tu Locación es - \nLat: " + miPos.latitude + "\nLong: " + miPos.longitude, Toast.LENGTH_LONG).show();
+                ReverseGeocodingTask AT = new ReverseGeocodingTask(view.getContext());
+                miDir = AT.doInBackground(miPos);
+            }
+            miDireccion.setText(miDir);
           }else{
             gps.showSettingsAlert();
         }
@@ -99,12 +104,19 @@ public class FragmentIncidencia extends Fragment implements View.OnClickListener
         id = v.getId();
         switch (id) {
             case R.id.btnShowLocation:
-//                    miDireccion = (EditText) view.findViewById(R.id.tv_direccion);
-//                    Toast.makeText(view.getContext(), "Google Maps "+ miDireccion.getText(), Toast.LENGTH_LONG).show();
-//                    Intent intent = new Intent().setClass(IncidenciaActivity.this,MapsActivity.class);
-//                    intent.putExtra("milat", LATITUDE);
-//                    intent.putExtra("milng", LONGITUDE);
-//                    startActivityForResult(intent, 0);
+                FragmentMapaInicidencia fragment = new FragmentMapaInicidencia();
+                Bundle args = new Bundle();
+                args.putDouble("milat", miPos.latitude);
+                args.putDouble("milng", miPos.longitude);
+                args.putString("Address", miDireccion.getText().toString());
+                fragment.setArguments(args);
+
+                FragmentManager ft = getActivity().getSupportFragmentManager();
+                ft.beginTransaction().replace(R.id.fragment_incidencia, fragment)
+                        .addToBackStack(null)
+                        .commitAllowingStateLoss();
+                ft.executePendingTransactions();
+                btnShowLocation.setEnabled(false);
                 break;
 
             case R.id.btnCapturaFoto:

@@ -51,7 +51,7 @@
             <TextView
                 android:id="@+id/textView_lineal1"
                 android:layout_width="fill_parent"
-                android:layout_height="1dp"
+                android:layout_height="2dp"
                 android:layout_alignParentTop="true"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
@@ -81,7 +81,7 @@
             <TextView
                 android:id="@+id/textView_lineal2"
                 android:layout_width="fill_parent"
-                android:layout_height="1dp"
+                android:layout_height="2dp"
                 android:layout_alignParentTop="true"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
@@ -138,7 +138,7 @@
             <TextView
                 android:id="@+id/textView_lineal3"
                 android:layout_width="fill_parent"
-                android:layout_height="1dp"
+                android:layout_height="2dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:background="#43c9cb" />
@@ -167,7 +167,7 @@
             <TextView
                 android:id="@+id/textView_lineal4"
                 android:layout_width="fill_parent"
-                android:layout_height="1dp"
+                android:layout_height="2dp"
                 android:layout_marginBottom="14dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
@@ -186,7 +186,7 @@
             <TextView
                 android:id="@+id/textView_lineal5"
                 android:layout_width="fill_parent"
-                android:layout_height="1dp"
+                android:layout_height="2dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:background="#43c9cb" />

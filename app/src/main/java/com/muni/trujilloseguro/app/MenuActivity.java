@@ -29,10 +29,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.muni.trujilloseguro.adapters.NavDrawerListAdapter;
@@ -49,7 +51,7 @@ public class MenuActivity extends ActionBarActivity {
 
     private static final int REQUEST_PHOTO = 1;
     private static final int REQUEST_INCIDENCIA_MAPA = 2;
-
+    Fragment fragment;
     private String FONT = "KaushanScript-Regular.otf";
 
     private DrawerLayout mDrawerLayout;
@@ -206,7 +208,7 @@ public class MenuActivity extends ActionBarActivity {
      * */
     private void displayView(int position) {
         // update the main content by replacing fragments
-        Fragment fragment = null;
+        fragment = null;
 
         switch (position) {
             case 0:
@@ -283,7 +285,7 @@ public class MenuActivity extends ActionBarActivity {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data){
-
+        super.onActivityResult(requestCode, resultCode, data);
         if(resultCode == Activity.RESULT_OK)
         {
             Bundle extras;
@@ -296,20 +298,12 @@ public class MenuActivity extends ActionBarActivity {
                     foto.setVisibility(View.VISIBLE);
                     foto.setImageBitmap(bmp);
                     break;
-
-                case REQUEST_INCIDENCIA_MAPA:
-                    EditText miDireccion = (EditText) findViewById(R.id.tv_direccion);
-                    double latitude = data.getExtras().getDouble("milat");
-                    double longitude = data.getExtras().getDouble("milng");
-                    LatLng miPos = new LatLng(latitude, longitude);
-                    ReverseGeocodingTask reverse = new ReverseGeocodingTask(getApplicationContext(), miDireccion);
-                    reverse.execute(miPos);
-                    break;
-
             }
 
+        }else {
+            Toast.makeText(getApplicationContext(), "Fallo", Toast.LENGTH_LONG).show();
         }
-        super.onActivityResult(requestCode, resultCode, data);
+
     }
 
 }

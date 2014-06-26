@@ -4,6 +4,7 @@ import android.content.Context;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.AsyncTask;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -18,23 +19,20 @@ import java.util.List;
 public class ReverseGeocodingTask extends AsyncTask<LatLng, Void, String> {
 
     private Context mContext;
-    private EditText miDireccion;
-    private  String addressText;
-    public ReverseGeocodingTask(Context context, EditText miDireccion){
+
+    public ReverseGeocodingTask(Context context){
         super();
         mContext = context;
-        this.miDireccion = miDireccion;
-
     }
 
     @Override
-    protected String doInBackground(LatLng... params) {
+    public String doInBackground(LatLng... params) {
         Geocoder geocoder = new Geocoder(mContext);
         double latitude = params[0].latitude;
         double longitude = params[0].longitude;
 
         List<Address> addresses = null;
-        addressText = "";
+        String addressText = "";
 
         try {
             addresses = geocoder.getFromLocation(latitude, longitude,1);
@@ -49,13 +47,6 @@ public class ReverseGeocodingTask extends AsyncTask<LatLng, Void, String> {
         }
 
         return addressText;
-    }
-
-    @Override
-    protected void onPostExecute(String addressText) {
-        Toast.makeText(mContext, addressText, Toast.LENGTH_LONG).show();
-        miDireccion.setText(addressText.toString());
-      //  this.addressText = addressText;
     }
 
 }
