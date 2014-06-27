@@ -104,10 +104,10 @@ public class FragmentIncidencia extends Fragment implements View.OnClickListener
         id = v.getId();
         switch (id) {
             case R.id.btnShowLocation:
-                FragmentMapaInicidencia fragment = new FragmentMapaInicidencia();
+                FragmentMapaInicidencia fragment = new FragmentMapaInicidencia(this);
                 Bundle args = new Bundle();
-                args.putDouble("milat", miPos.latitude);
-                args.putDouble("milng", miPos.longitude);
+                args.putDouble("milat",miPos.latitude);
+                args.putDouble("milng",miPos.longitude);
                 args.putString("Address", miDireccion.getText().toString());
                 fragment.setArguments(args);
 
@@ -116,7 +116,7 @@ public class FragmentIncidencia extends Fragment implements View.OnClickListener
                         .addToBackStack(null)
                         .commitAllowingStateLoss();
                 ft.executePendingTransactions();
-                btnShowLocation.setEnabled(false);
+                setEstadoBtnshowMap(false);
                 break;
 
             case R.id.btnCapturaFoto:
@@ -127,6 +127,15 @@ public class FragmentIncidencia extends Fragment implements View.OnClickListener
             default:
                 break;
         }
+
+
     }
 
+    public void setEstadoBtnshowMap(boolean flag){
+        btnShowLocation.setEnabled(flag);
+    }
+
+    public void setPosicion(LatLng miPos){
+        this.miPos = miPos;
+    }
 }

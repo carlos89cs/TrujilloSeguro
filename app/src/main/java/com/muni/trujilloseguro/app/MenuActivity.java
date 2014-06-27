@@ -6,23 +6,18 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Color;
-import android.graphics.Matrix;
-import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
-import android.media.Image;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.content.res.TypedArray;
 import android.support.v4.app.ActionBarDrawerToggle;
-//import android.support.v4.app.Fragment;
+
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.text.Spannable;
 import android.text.SpannableString;
 
-import com.google.android.gms.maps.model.LatLng;
 import com.muni.trujilloseguro.components.TypefaceSpan;
 import android.util.Log;
 import android.view.Menu;
@@ -30,7 +25,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -42,12 +36,14 @@ import com.muni.trujilloseguro.fragments.FragmentIncidencia;
 import com.muni.trujilloseguro.fragments.FragmentLlamar;
 import com.muni.trujilloseguro.fragments.FragmentNotificame;
 import com.muni.trujilloseguro.fragments.FragmentOne;
-import com.muni.trujilloseguro.gps.ReverseGeocodingTask;
+import com.muni.trujilloseguro.gps.GPSTracker;
 import com.muni.trujilloseguro.models.NavDrawerItem;
 
 import java.util.ArrayList;
 
 public class MenuActivity extends ActionBarActivity {
+
+
 
     private static final int REQUEST_PHOTO = 1;
     private static final int REQUEST_INCIDENCIA_MAPA = 2;
@@ -77,6 +73,7 @@ public class MenuActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
+        new GPSTracker(getApplicationContext());
         fragmentManager = getSupportFragmentManager();
 
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#1b2533")));
@@ -160,7 +157,7 @@ public class MenuActivity extends ActionBarActivity {
 
     /**
      * Slide menu item click listener
-     * */
+     */
     private class SlideMenuClickListener implements
             ListView.OnItemClickListener {
         @Override
@@ -174,7 +171,7 @@ public class MenuActivity extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
-        return false ;
+        return false;
     }
 
     @Override
@@ -205,7 +202,7 @@ public class MenuActivity extends ActionBarActivity {
 
     /**
      * Diplaying fragment view for selected nav drawer list item
-     * */
+     */
     private void displayView(int position) {
         // update the main content by replacing fragments
         fragment = null;
@@ -284,12 +281,11 @@ public class MenuActivity extends ActionBarActivity {
     }
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data){
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(resultCode == Activity.RESULT_OK)
-        {
+        if (resultCode == Activity.RESULT_OK) {
             Bundle extras;
-            switch (requestCode){
+            switch (requestCode) {
 
                 case REQUEST_PHOTO:
                     extras = data.getExtras();
@@ -300,10 +296,9 @@ public class MenuActivity extends ActionBarActivity {
                     break;
             }
 
-        }else {
+        } else {
             Toast.makeText(getApplicationContext(), "Fallo", Toast.LENGTH_LONG).show();
         }
 
     }
-
 }
