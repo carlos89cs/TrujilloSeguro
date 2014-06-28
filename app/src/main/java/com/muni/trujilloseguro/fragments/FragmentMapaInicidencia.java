@@ -170,5 +170,4 @@ public class FragmentMapaInicidencia extends Fragment implements
         marker.showInfoWindow();
 
     }
-
 }

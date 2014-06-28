@@ -304,9 +304,12 @@ public class MenuActivity extends ActionBarActivity {
 
     @Override
     public void onBackPressed() {
-            Button btnshowmap = (Button) findViewById(R.id.btnShowLocation);
-            btnshowmap.setEnabled(true);
-            super.onBackPressed();
+        Button btnshowmap = (Button) findViewById(R.id.btnShowLocation);
+        btnshowmap.setEnabled(true);
+        super.onBackPressed();
 
     }
+
+
+
 }
