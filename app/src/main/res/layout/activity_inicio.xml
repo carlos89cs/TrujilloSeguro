@@ -82,7 +82,7 @@
         android:id="@+id/btn_registrar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#43c9cb"
+        android:background="@drawable/nuevo_button"
         android:paddingLeft="85dp"
         android:paddingRight="85dp"
         android:text="@string/s_acceder"

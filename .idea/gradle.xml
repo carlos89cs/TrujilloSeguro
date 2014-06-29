@@ -7,8 +7,8 @@
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="modules">
           <set>
-            <option value="E:\7mo\Android studioProjects\TrujilloSeguro" />
-            <option value="E:\7mo\Android studioProjects\TrujilloSeguro\app" />
+            <option value="E:\Android Development\TrujilloSeguro" />
+            <option value="E:\Android Development\TrujilloSeguro\app" />
           </set>
         </option>
       </GradleProjectSettings>

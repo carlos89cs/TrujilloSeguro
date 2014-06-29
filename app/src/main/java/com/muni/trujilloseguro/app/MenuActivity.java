@@ -4,9 +4,12 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
+import android.provider.ContactsContract;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.content.res.TypedArray;
@@ -24,20 +27,26 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 
 import com.muni.trujilloseguro.adapters.NavDrawerListAdapter;
+import com.muni.trujilloseguro.fragments.FragmentAlerta;
 import com.muni.trujilloseguro.fragments.FragmentIncidencia;
 import com.muni.trujilloseguro.fragments.FragmentLlamar;
+import com.muni.trujilloseguro.fragments.FragmentNoticias;
 import com.muni.trujilloseguro.fragments.FragmentNotificame;
 import com.muni.trujilloseguro.fragments.FragmentOne;
 import com.muni.trujilloseguro.gps.GPSTracker;
+import com.muni.trujilloseguro.models.DBhelper;
 import com.muni.trujilloseguro.models.NavDrawerItem;
+import com.muni.trujilloseguro.models.SQLController;
 
 import java.util.ArrayList;
 
@@ -46,7 +55,8 @@ public class MenuActivity extends ActionBarActivity {
 
 
     private static final int REQUEST_PHOTO = 1;
-    private static final int REQUEST_INCIDENCIA_MAPA = 2;
+   // private static final int REQUEST_INCIDENCIA_MAPA = 2;
+    private static final int RQS_PICKCONTACT = 2;
     Fragment fragment;
     private String FONT = "KaushanScript-Regular.otf";
 
@@ -68,10 +78,23 @@ public class MenuActivity extends ActionBarActivity {
     private NavDrawerListAdapter adapter;
     public static FragmentManager fragmentManager;
 
+
+    Spinner spn;
+    SQLController SQLcon;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
+
+        //spn = (Spinner) findViewById(R.id.spinner_contactos);
+
+        //SQLcon = new SQLController(this);
+
+        //SQLcon.open();
+        //loadtospinner();
+
+
 
         new GPSTracker(getApplicationContext());
         fragmentManager = getSupportFragmentManager();
@@ -158,6 +181,31 @@ public class MenuActivity extends ActionBarActivity {
     /**
      * Slide menu item click listener
      */
+
+    /*public void loadtospinner() {
+
+        Cursor c = SQLcon.readData();
+        ArrayList<String> al = new ArrayList<String>();
+
+        c.moveToFirst();
+        while (!c.isAfterLast()) {
+
+            String name = c.getString(c.getColumnIndex(DBhelper.MEMBER_NAME));
+            al.add(name);
+            c.moveToNext();
+        }
+
+        ArrayAdapter<String> aa1 = new ArrayAdapter<String>(getApplicationContext(), R.layout.spinner_item, R.id.textView1,al);
+
+        spn.setAdapter(aa1);
+
+        // closing database
+        SQLcon.close();
+
+
+    }*/
+
+
     private class SlideMenuClickListener implements
             ListView.OnItemClickListener {
         @Override
@@ -209,7 +257,7 @@ public class MenuActivity extends ActionBarActivity {
 
         switch (position) {
             case 0:
-                fragment = new FragmentOne();
+                fragment = new FragmentAlerta();
                 break;
             case 1:
                 fragment = new FragmentIncidencia();
@@ -218,7 +266,7 @@ public class MenuActivity extends ActionBarActivity {
                 fragment = new FragmentNotificame();
                 break;
             case 3:
-                fragment = new FragmentOne();
+                fragment = new FragmentNoticias();
                 break;
             case 4:
                 fragment = new FragmentOne();
@@ -294,6 +342,46 @@ public class MenuActivity extends ActionBarActivity {
                     foto.setVisibility(View.VISIBLE);
                     foto.setImageBitmap(bmp);
                     break;
+
+                case RQS_PICKCONTACT:
+                    TextView textPhone = (TextView) findViewById(R.id.phone);
+                    Uri returnUri = data.getData();
+                    Cursor cursor = getContentResolver().query(returnUri, null, null, null, null);
+
+                    if(cursor.moveToNext()){
+                        int columnIndex_ID = cursor.getColumnIndex(ContactsContract.Contacts._ID);
+                        String contactID = cursor.getString(columnIndex_ID);
+
+                        int columnIndex_HASPHONENUMBER = cursor.getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER);
+                        String stringHasPhoneNumber = cursor.getString(columnIndex_HASPHONENUMBER);
+
+                        if(stringHasPhoneNumber.equalsIgnoreCase("1")){
+                            Cursor cursorNum = getContentResolver().query(
+                                    ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
+                                    null,
+                                    ContactsContract.CommonDataKinds.Phone.CONTACT_ID + "=" + contactID,
+                                    null,
+                                    null);
+
+                            //Obtiene el primer numero
+                            if(cursorNum.moveToNext()){
+                                int columnIndex_number = cursorNum.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME);
+                                String stringNumber = cursorNum.getString(columnIndex_number);
+                                textPhone.setText(stringNumber);
+                                Toast.makeText(getApplicationContext(), "Se agregó a : " + stringNumber, Toast.LENGTH_LONG).show();
+                                //SQLcon.open();
+                                //SQLcon.insertData(stringNumber);
+
+                            }
+
+                        }else{
+                            textPhone.setText("No tiene numero");
+                        }
+
+
+                    }else{
+                        Toast.makeText(getApplicationContext(), "NO hay data", Toast.LENGTH_LONG).show();
+                    }
             }
 
         } else {

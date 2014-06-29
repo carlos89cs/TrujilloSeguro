@@ -25,7 +25,9 @@ import com.google.android.gms.maps.GoogleMap.OnMapLongClickListener;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.muni.trujilloseguro.app.MenuActivity;
 import com.muni.trujilloseguro.app.R;
@@ -37,7 +39,7 @@ public class FragmentNotificame extends Fragment {
 
     private static View view;
     private static GoogleMap mMap;
-    private static final LatLng Trujillo = new LatLng(-8.111944,-79.028889);
+    private static final LatLng ComiseriaAyacucho = new LatLng(-8.113916,-79.026450);
 
 
     MapView m;
@@ -65,6 +67,9 @@ public class FragmentNotificame extends Fragment {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        Marker poli1 = mMap.addMarker(new MarkerOptions().position(ComiseriaAyacucho).title("Comiseria Ayacucho"));
+
 
         // Updates the location and zoom of the MapView
         CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(new LatLng(-8.111944,-79.028889), 13);

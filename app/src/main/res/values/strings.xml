@@ -35,6 +35,14 @@
         <item>Accidente Vehicular</item>
     </string-array>
 
+    <string-array name="miscontactos">
+        <item>Daniel Cam (996158492)</item>
+        <item>Fabio Gutierrez (969937789)</item>
+        <item>Lizbeth Barreto (973024250)</item>
+        <item>Carlos Castañeda (943272543)</item>
+
+    </string-array>
+
 
     <!-- Registrar Activity -->
     <string name="s_nombre">Nombre</string>
