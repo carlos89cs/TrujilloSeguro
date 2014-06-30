@@ -18,9 +18,7 @@ public class RegistrarActivity extends ActionBarActivity {
         setContentView(R.layout.activity_registrar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-       //getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#ff7b4d")));
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#d89427")));
-
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#1b2533")));
 
     }
 

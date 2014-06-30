@@ -7,4 +7,6 @@
     <color name="list_divider">#d2d2d6</color>
     <color name="counter_text_bg">#fd6561</color>
     <color name="counter_text_color">#c5c4c4</color>
+    <color name="apptheme_color">#43c9cb</color>
+
 </resources>
