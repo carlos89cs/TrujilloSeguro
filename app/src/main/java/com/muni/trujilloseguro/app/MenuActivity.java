@@ -80,7 +80,7 @@ public class MenuActivity extends ActionBarActivity {
 
 
     Spinner spn;
-    SQLController SQLcon;
+    //SQLController SQLcon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
