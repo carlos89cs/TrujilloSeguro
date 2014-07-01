@@ -61,9 +61,8 @@
                 android:id="@+id/spinner_tipo"
                 android:layout_width="fill_parent"
                 android:layout_alignParentTop="true"
-                android:layout_marginTop="10sp"
                 android:layout_marginBottom="10sp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp" />
 
@@ -97,7 +96,7 @@
                 android:layout_marginLeft="10sp"
                 android:layout_marginRight="0sp" >
 
-                <EditText
+                <com.muni.trujilloseguro.components.MyEditText
                     android:id="@+id/tv_direccion"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -143,7 +142,7 @@
                 android:layout_marginRight="15dp"
                 android:background="#43c9cb" />
 
-            <EditText
+            <com.muni.trujilloseguro.components.MyEditText
                 android:id="@+id/editText_descripción"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -151,8 +150,8 @@
                 android:layout_marginRight="15dp"
                 android:layout_marginBottom="10sp"
                 android:ems="10"
-                android:inputType="textMultiLine" >
-            </EditText>
+                android:inputType="textMultiLine" />
+
 
             <TextView
                 android:id="@+id/TextView_fecha"

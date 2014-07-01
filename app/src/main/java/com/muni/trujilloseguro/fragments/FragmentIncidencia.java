@@ -40,6 +40,8 @@ import java.util.List;
  */
 public class FragmentIncidencia extends Fragment implements View.OnClickListener {
 
+    FragmentMapaInicidencia fragmentMapa;
+
     View view;
     private Spinner tipoincidencias;
     private ImageView foto;
@@ -104,19 +106,19 @@ public class FragmentIncidencia extends Fragment implements View.OnClickListener
         id = v.getId();
         switch (id) {
             case R.id.btnShowLocation:
-                FragmentMapaInicidencia fragment = new FragmentMapaInicidencia(this);
+                fragmentMapa = new FragmentMapaInicidencia(this);
                 Bundle args = new Bundle();
                 args.putDouble("milat",miPos.latitude);
                 args.putDouble("milng",miPos.longitude);
                 args.putString("Address", miDireccion.getText().toString());
-                fragment.setArguments(args);
+                fragmentMapa.setArguments(args);
 
                 FragmentManager ft = getActivity().getSupportFragmentManager();
-                ft.beginTransaction().replace(R.id.fragment_incidencia, fragment)
+                ft.beginTransaction().replace(R.id.fragment_incidencia, fragmentMapa)
                         .addToBackStack(null)
                         .commitAllowingStateLoss();
                 ft.executePendingTransactions();
-                setEstadoBtnshowMap(false);
+                btnShowLocation.setEnabled(false);
                 break;
 
             case R.id.btnCapturaFoto:
@@ -127,15 +129,10 @@ public class FragmentIncidencia extends Fragment implements View.OnClickListener
             default:
                 break;
         }
-
-
-    }
-
-    public void setEstadoBtnshowMap(boolean flag){
-        btnShowLocation.setEnabled(flag);
     }
 
     public void setPosicion(LatLng miPos){
         this.miPos = miPos;
     }
+
 }
