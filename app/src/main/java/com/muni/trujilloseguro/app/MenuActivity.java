@@ -1,8 +1,6 @@
 package com.muni.trujilloseguro.app;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
@@ -29,8 +27,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
@@ -46,9 +42,7 @@ import com.muni.trujilloseguro.fragments.FragmentNoticias;
 import com.muni.trujilloseguro.fragments.FragmentNotificame;
 import com.muni.trujilloseguro.fragments.FragmentOne;
 import com.muni.trujilloseguro.gps.GPSTracker;
-import com.muni.trujilloseguro.models.DBhelper;
 import com.muni.trujilloseguro.models.NavDrawerItem;
-import com.muni.trujilloseguro.models.SQLController;
 
 import java.util.ArrayList;
 
