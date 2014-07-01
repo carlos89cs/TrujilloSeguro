@@ -33,14 +33,12 @@ public class InicioActivity extends ActionBarActivity {
         setContentView(R.layout.activity_inicio);
 
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#1b2533")));
-
-
         inicializarControles();
 
         btnIngresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                validacionesInicio();
+        validacionesInicio();
                 if(etEmail.getText().toString().equals("carlos@gmail.com") && etPassword.getText().toString().equals("1234567"))
                 {
                     getExtras();
@@ -58,7 +56,10 @@ public class InicioActivity extends ActionBarActivity {
     {
         Validacion v1 = new Validacion();
 
+
+
         if(!v1.validarEmail(etEmail))
+
         {
             etEmail.setError("Email Inválido");
         }
@@ -71,7 +72,7 @@ public class InicioActivity extends ActionBarActivity {
 
     public void inicializarControles()
     {
-        btnIngresar = (Button) findViewById(R.id.btn_registrar);
+        btnIngresar = (Button) findViewById(R.id.btn_ingresar);
         etEmail = (MyEditText) findViewById(R.id.et_email);
         etPassword = (MyEditText) findViewById(R.id.et_password);
     }
