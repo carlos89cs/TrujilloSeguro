@@ -58,18 +58,6 @@ public class FragmentLlamar  extends Fragment
 
 
 
-        /*listainstituciones.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
-
-                Toast toast1 =
-                        Toast.makeText(getActivity(),
-                                "Toast por defecto", Toast.LENGTH_SHORT);
-
-                toast1.show();
-                return true;
-            }
-        });*/
 
 
 
