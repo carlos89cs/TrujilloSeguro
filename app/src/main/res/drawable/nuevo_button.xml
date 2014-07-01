@@ -3,6 +3,6 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:drawable="@drawable/boton_presionado"
           android:state_pressed="true"/>
-    <item android:drawable="@drawable/boton_selector"/>
+    <item android:drawable="@drawable/boton_normal"/>
 
 </selector>
