@@ -1,6 +1,8 @@
 package com.muni.trujilloseguro.app;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
@@ -392,9 +394,9 @@ public class MenuActivity extends ActionBarActivity {
 
     @Override
     public void onBackPressed() {
-            Button btnshowmap = (Button) findViewById(R.id.btnShowLocation);
-            btnshowmap.setEnabled(true);
-            super.onBackPressed();
-
+        //Button btnshowmap = (Button) findViewById(R.id.btnShowLocation);
+        // btnshowmap.setEnabled(true);
+        super.onBackPressed();
     }
 }
+

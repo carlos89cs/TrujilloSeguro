@@ -9,6 +9,8 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import com.muni.trujilloseguro.app.R;
 
@@ -18,6 +20,7 @@ import com.muni.trujilloseguro.app.R;
 public class MyEditText extends EditText {
     //The image we are going to use for the Clear button
     private Drawable imgCloseButton = getResources().getDrawable(R.drawable.delete_icon);
+
 
     public MyEditText(Context context) {
         super(context);
@@ -102,4 +105,8 @@ public class MyEditText extends EditText {
             this.setCompoundDrawables(this.getCompoundDrawables()[0], this.getCompoundDrawables()[1], imgCloseButton, this.getCompoundDrawables()[3]);
         }
     }
+
+
+
+
 }

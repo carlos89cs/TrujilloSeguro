@@ -45,7 +45,7 @@
         android:layout_height="wrap_content" />
                                                 /-->
     <com.muni.trujilloseguro.components.MyEditText
-        android:id="@+id/et_nombre"
+        android:id="@+id/et_email"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv_bienvenido"
@@ -69,12 +69,13 @@
         android:drawableLeft="@drawable/private48"
         android:textColor="#706d6d"
         android:hint="@string/s_contrasenia"
-        android:id="@+id/view"
-        android:layout_below="@+id/et_nombre"
-        android:layout_alignLeft="@+id/et_nombre"
-        android:layout_alignStart="@+id/et_nombre"
-        android:layout_alignRight="@+id/et_nombre"
-        android:layout_alignEnd="@+id/et_nombre" />
+        android:inputType="textPassword"
+        android:id="@+id/et_password"
+        android:layout_below="@+id/et_email"
+        android:layout_alignLeft="@+id/et_email"
+        android:layout_alignStart="@+id/et_email"
+        android:layout_alignRight="@+id/et_email"
+        android:layout_alignEnd="@+id/et_email" />
 
 
 
