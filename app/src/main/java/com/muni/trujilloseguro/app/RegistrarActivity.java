@@ -81,7 +81,7 @@ public class RegistrarActivity extends ActionBarActivity {
         }
         if(!v1.validarContrasenia(etContrasenia))
         {
-            etContrasenia.setError("Mínimo 6 caracteres");c--;
+            etContrasenia.setError("Mínimo 6 caracteresssss");c--;
         }
         return c;
     }
